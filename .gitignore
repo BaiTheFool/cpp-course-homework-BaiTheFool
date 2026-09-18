@@ -1,0 +1,19 @@
+# C++编译输出
+*.exe
+*.obj
+*.o
+*.out
+*.iobj
+*.ipdb
+
+# VS Code缓存
+.vscode/*.log
+.vscode/.cache
+
+# Windows临时文件
+*.tmp
+*.bak
+
+# CLion / CMake
+cmake-build-*/
+.vscode/
