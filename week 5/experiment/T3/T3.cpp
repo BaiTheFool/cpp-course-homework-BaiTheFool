@@ -7,7 +7,7 @@ void input(){
     scanf("%c",&c);
 }
 void calculate(){
-    printf("%c\n%c\n%c\n",c-('a'-'A'),c-1,c+1);
+    printf("%c\n%c\n%c\n",c-('a'-'A'),'a'+(c-'a'+25)%26,'a'+(c-'a'+1)%26);
 }
 int main(){
     input();
