@@ -7,7 +7,6 @@ void input(){
     scanf("%lf",&f);
 }
 void calculate(){
-    printf("%.2f",(f-32)*5.0/9.0);
 }
 int main(){
     input();
