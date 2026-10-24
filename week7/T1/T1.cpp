@@ -2,7 +2,7 @@
 BEGIN
     INPUT sales
     WHILE sales != -1
-        salary <- CalculateSalary(salses)
+        salary <- CalculateSalary(sales)
         PRINT salary
         INPUT sales
     END WHILE
@@ -19,7 +19,7 @@ END PROCEDURE
 double sales;
 double CalculateSalary(double sales){
     double baseSalary = 200;
-    double commission = sales * 0.09;
+    double commission = sales * 0.09; 
     double total = baseSalary + commission;
     return total;
 }
