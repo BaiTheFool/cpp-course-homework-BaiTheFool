@@ -1,45 +1,47 @@
-#include<iostream>
-#include<vector>
-#include<iomanip>
-int n;
-int cntbit(int a){//判断n位数
-    int cnt=0;
-    while(a>0){
-        a/=10;
-        cnt++;
-    } 
-    return cnt;
-}
-void walk(std::vector<std::vector<int>>* vec){
-    int go[4][2]={{0,1},{1,0},{0,-1},{-1,0}};//方向：右下左上
-    int x=0,y=0,dir=0,cnt=0;
-    for(int i=1;i<=n*n;i++){
-        (*vec)[x][y]=++cnt;
-        int nx=x+go[dir][0];
-        int ny=y+go[dir][1];
-        if(nx<0||nx>=n||ny<0||ny>=n||(*vec)[nx][ny]!=0){//碰壁或者前方数字已经填过
-            dir=(dir+1)%4;//转变方向
-            nx=x+go[dir][0];
-            ny=y+go[dir][1];
-        }
-        x=nx;
-        y=ny;
-    }
-}
-int main(){
-    std::cin>>n;//输入n
-    std::vector<std::vector<int>> vec (n,std::vector<int>(n,0));//建立2维数组
-    int num=cntbit(n*n);
-    walk(&vec);
-    for(int i=0;i<n;i++)//第一层循环n次
+
+#include <iostream>
+#include <iomanip>
+#include <cmath> // 添加 <cmath> 以使用 pow
+using namespace std;
+
+int main()
+{
+    int i = 1;
+    int j = 1; // 在循环外部声明 j，确保后面的代码能访问到它
+    double a;
+    double b;
+    
+    cout << setprecision( 2 );
+    
+    // 去掉 int，直接使用外部的 i，保证 i 的初始值为 1
+    for ( i = 1; i <= 2; i++ ) 
+        cout << "i is now equal to " << i << endl;
+    
+    // 去掉 int，使用外部的 j
+    for ( j = 1; j <= 3; j++ ) 
     {
-        for(int j=0;j<n;j++)//第二层循环n次
+        cout << "\tj is now equal to " << j << endl;
+        
+        cout << "\t\ti + j = " << i + j << "\ti - j = " 
+             << i - j << endl;
+        cout << "\t\ti * j = " << i * j << "\ti ^ j = " 
+             << pow( i, j ) << endl;
+             
+        if ( j == 0 ) // 把 = 改为 ==
+            continue;
+        else
         {
-            std::cout<<std::setw(num)<<vec[i][j];
-            std::cout<<" ";
-        }
-        std::cout<<std::endl;//换行
-    }
+            a = i;
+            b = j;
+            // a / b 后面加上 <<
+            // 把 a % b 改为 i % j (取模只能用于整数)
+            cout << "\t\ti / j = " << a / b 
+                 << "\ti % j = " << i % j << endl; 
+        } 
+    } 
+    
+    cout << "\nThe final values of i and j are: " << i
+    << " and " << j << endl;
     
     return 0;
-}
+} 
